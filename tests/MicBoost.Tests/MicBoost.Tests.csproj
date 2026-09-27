@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Tests for the platform-neutral parts of MicBoost (boost mapping, limiter). They link the
+       source files directly so they build and run on any OS, including CI without Windows. -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <IsPackable>false</IsPackable>
+    <IsPublishable>false</IsPublishable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\src\MicBoost\Audio\BoostPlanner.cs" Link="Linked\BoostPlanner.cs" />
+    <Compile Include="..\..\src\MicBoost\Audio\VirtualCableRouter.cs" Link="Linked\VirtualCableRouter.cs" />
+    <Compile Include="..\..\src\MicBoost\Core\Log.cs" Link="Linked\Log.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
+    <PackageReference Include="xunit" Version="2.9.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" />
+    <PackageReference Include="NAudio.Wasapi" Version="2.2.1" />
+  </ItemGroup>
+
+</Project>
